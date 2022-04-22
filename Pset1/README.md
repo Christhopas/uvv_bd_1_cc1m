@@ -19,4 +19,6 @@ Ferramentas usadas no PSet1:
 > - DBeaver (Plataforma de desenvolvimento de multiplas databases)
 > - Oracle VM VirtualBox ([Com implementação de uma maquina virtual criada pelo Prof. Abrantes](https://www.computacaoraiz.com.br/2022/03/17/maquina-virtual-para-o-estudo-de-sistemas-de-gerenciamento-de-bancos-de-dados-db-server/))
 
-# **2. Projeto Lógico** <img src="https://ucarecdn.com/c51f4b2a-d92c-4e2a-a775-8b7c06fcf3f1/-/format/auto/-/progressive/yes/-/preview/2048x2048/" width="50">
+# **2. Projeto Lógico** 
+<img src="https://ucarecdn.com/c51f4b2a-d92c-4e2a-a775-8b7c06fcf3f1/-/format/auto/-/progressive/yes/-/preview/2048x2048/" width="50"> Usando a ferramenta SQL Power Architect iniciamos a construção do projeto lógico da tabela do Elmarsi, após a construção das tabelas, colunas e as referências, usamos uma tool do software, capaz de transformar todo o projeto em scripts.
+
