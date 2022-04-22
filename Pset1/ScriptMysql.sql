@@ -1,3 +1,4 @@
+-- ⚠️ É DE EXTREMA IMPORTÂNCIA QUE VOCÊ RODE OS SCRIPTS TODOS NO TERMINAL
 CREATE user Christopher identified by "1234";
 
 GRANT all privileges on uvv. * to Christopher;
