@@ -60,7 +60,7 @@ Agora so abrir o terminal, inserir os comandos para se conectar ao MYsql, e cola
 
 # **5. Conclusão**
 Foi extremamente satisfatório trabalhar com esse projeto, realmente traz à superficie como trabalhar com banco de dados. Eu sou adepto do método de ensino do "se vira", pois é assim que teremos de agir agora em diante na faculdade, pesquisar, pesquisar e pesquisar mais um pouco.
-##⚠️ É DE EXTREMA IMPORTÂNCIA QUE VOCÊ RODE OS SCRIPTS TODOS NO TERMINAL
+## ⚠️ É DE EXTREMA IMPORTÂNCIA QUE VOCÊ RODE OS SCRIPTS TODOS NO TERMINAL
           
 
 
