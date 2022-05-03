@@ -1,7 +1,7 @@
 <div align="center">
   
 # **Design e Desenvolvimento de Bancos de Dados**
-## *PSet1*
+## *PSet2*
 #### Aluno: Christopher Passos Thompson
 #### Prof. Abrantes Araújo Silva Filho
 #### Monitora: Suellen Miranda Amorim
