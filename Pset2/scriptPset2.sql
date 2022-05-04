@@ -1,4 +1,4 @@
--- Todos os scripts devem ser testado no MySql
+-- Todos os scripts devem ser testado no MySql, use o código "use uvv;" para habilitar o banco de dados
 
 -- 01
 select avg(f.salario) as media_salario, d.nome_departamento 
