@@ -93,7 +93,6 @@ from departamento d inner join funcionario f,
 where d.numero_departamento = f.numero_departamento and g.cpf = d.cpf_gerente order by d.nome_departamento asc, f.salario desc;
 ```
 
-
 | departamento  | gerente  | funcionario | salarios |
 |---------------|----------|-------------|----------|
 | Administração | Jennifer | Jennifer    | 43000.00 |
@@ -105,4 +104,126 @@ where d.numero_departamento = f.numero_departamento and g.cpf = d.cpf_gerente or
 | Pesquisa      | Fernando | João        | 30000.00 |
 | Pesquisa      | Fernando | Joice       | 25000.00 |
 
+<br>
 
+# **Questão 6**
+```
+select concat(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome, dto.nome_departamento as departamento,
+dpd.nome_dependente as dependente, floor(datediff(curdate(), dpd.data_nascimento)/365.25) as idade_dependente,
+case when dpd.sexo = 'M' then 'masculino' when dpd.sexo = 'm' then 'masculino'
+when dpd.sexo = 'F' then 'Feminino' when dpd.sexo = 'f' then 'feminino' end as sexo_dependente
+from funcionario f 
+inner join departamento dto on f.numero_departamento = dto.numero_departamento inner join dependente dpd ON dpd.cpf_funcionario = f.cpf;
+```
+
+| nome             | departamento  | dependente | idade_dependente | sexo_dependente |
+|------------------|---------------|------------|------------------|-----------------|
+| João B Silva     | Pesquisa      | Alícia     |               33 | Feminino        |
+| João B Silva     | Pesquisa      | Elizabeth  |               54 | Feminino        |
+| João B Silva     | Pesquisa      | Michael    |               34 | masculino       |
+| Fernando T Wong  | Pesquisa      | Alícia     |               36 | Feminino        |
+| Fernando T Wong  | Pesquisa      | Janaína    |               64 | Feminino        |
+| Fernando T Wong  | Pesquisa      | Tiago      |               38 | masculino       |
+| Jennifer S Souza | Administração | Antonio    |               80 | masculino       |
+
+<br>
+
+# **Questão 7**
+```
+select distinct concat(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome, dp.nome_departamento as departamento,
+cast((f.salario) as decimal(10,2)) as salario from funcionario f
+inner join departamento dp inner join dependente dnp
+where dp.numero_departamento = f.numero_departamento and
+f.cpf not in (select dnp.cpf_funcionario from dependente dnp);
+```
+
+| nome            | departamento  | salario  |
+|-----------------|---------------|----------|
+| Alice J Zelaya  | Administração | 25000.00 |
+| André V Pereira | Administração | 25000.00 |
+| Jorge E Brito   | Matriz        | 55000.00 |
+| Ronaldo K Lima  | Pesquisa      | 38000.00 |
+| Joice A Leite   | Pesquisa      | 25000.00 |
+
+<br>
+
+# **Questão 8**
+```
+select d.nome_departamento as departamento, p.nome_projeto as projeto,
+concat(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome, t.horas as horas
+from funcionario f inner join departamento d inner join projeto p inner join trabalha_em t
+where d.numero_departamento = f.numero_departamento and
+p.numero_projeto = t.numero_projeto and f.cpf = t.cpf_funcionario order by p.numero_projeto;
+```
+
+| departamento  | projeto         | nome             | horas |
+|---------------|-----------------+------------------|-------|
+| Pesquisa      | ProdutoX        | João B Silva     |  32.5 |
+| Pesquisa      | ProdutoX        | Joice A Leite    |  20.0 |
+| Pesquisa      | ProdutoY        | João B Silva     |   7.5 |
+| Pesquisa      | ProdutoY        | Fernando T Wong  |  10.0 |
+| Pesquisa      | ProdutoY        | Joice A Leite    |  20.0 |
+| Pesquisa      | ProdutoZ        | Fernando T Wong  |  10.0 |
+| Pesquisa      | ProdutoZ        | Ronaldo K Lima   |  40.0 |
+| Pesquisa      | Informatização  | Fernando T Wong  |  10.0 |
+| Administração | Informatização  | André V Pereira  |  35.0 |
+| Administração | Informatização  | Alice J Zelaya   |  10.0 |
+| Pesquisa      | Reorganização   | Fernando T Wong  |  10.0 |
+| Matriz        | Reorganização   | Jorge E Brito    |   0.0 |
+| Administração | Reorganização   | Jennifer S Souza |  15.0 |
+| Administração | Novosbenefícios | Jennifer S Souza |  20.0 |
+| Administração | Novosbenefícios | André V Pereira  |   5.0 |
+| Administração | Novosbenefícios | Alice J Zelaya   |  30.0 |
+
+<br>
+
+# **Questão 9**
+```
+select d.nome_departamento as departamento, p.nome_projeto as projeto, sum(t.horas) as total_horas
+from departamento d inner join projeto p inner join trabalha_em t
+where d.numero_departamento = p.numero_departamento AND p.numero_projeto = t.numero_projeto group by p.nome_projeto;
+```
+
+| departamento  | projeto         | total_horas |
+|---------------|-----------------|-------------|
+| Pesquisa      | ProdutoX        |        52.5 |
+| Pesquisa      | ProdutoY        |        37.5 |
+| Pesquisa      | ProdutoZ        |        50.0 |
+| Administração | Informatização  |        55.0 |
+| Matriz        | Reorganização   |        25.0 |
+| Administração | Novosbenefícios |        55.0 |
+
+<br>
+
+# **Questão 10**
+```
+select d.nome_departamento as departamento, cast(avg(f.salario) as decimal(10,2)) as media_salarial
+from departamento d inner join funcionario f
+where d.numero_departamento = f.numero_departamento group by d.nome_departamento;
+``` 
+| departamento  | media_salarial |
+|---------------|----------------|
+| Pesquisa      |       33250.00 |
+| Matriz        |       55000.00 |
+| Administração |       31000.00 |
+
+<br>
+
+# **Questão 11**
+```
+select concat(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome, p.nome_projeto as projeto,
+cast((f.salario) as decimal(10,2)) as recebimento
+from funcionario f inner join projeto p inner join trabalha_em t
+where f.cpf = t.cpf_funcionario and p.numero_projeto = t.numero_projeto group by f.primeiro_nome;
+```
+
+| nome             | projeto         | recebimento |
+|------------------|-----------------|-------------|
+| Fernando T Wong  | Informatização  |    40000.00 |
+| André V Pereira  | Informatização  |    25000.00 |
+| Alice J Zelaya   | Informatização  |    25000.00 |
+| Jennifer S Souza | Novosbenefícios |    43000.00 |
+| João B Silva     | ProdutoX        |    30000.00 |
+| Joice A Leite    | ProdutoX        |    25000.00 |
+| Ronaldo K Lima   | ProdutoZ        |    38000.00 |
+| Jorge E Brito    | Reorganização   |    55000.00 |
