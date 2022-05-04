@@ -88,7 +88,8 @@ where salario >= '35000';
 # **Questão 5**
 ```
 select nome_departamento as departamento, g.primeiro_nome as gerente, f.primeiro_nome as funcionario, salario as salarios
-from departamento d inner join funcionario f, 
+from departamento d 
+inner join funcionario f, 
 (select primeiro_nome, cpf from funcionario f inner join departamento d where f.cpf = d.cpf_gerente) as g
 where d.numero_departamento = f.numero_departamento and g.cpf = d.cpf_gerente order by d.nome_departamento asc, f.salario desc;
 ```
