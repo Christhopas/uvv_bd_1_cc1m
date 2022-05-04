@@ -199,7 +199,8 @@ where d.numero_departamento = p.numero_departamento AND p.numero_projeto = t.num
 # **Questão 10**
 ```
 select d.nome_departamento as departamento, cast(avg(f.salario) as decimal(10,2)) as media_salarial
-from departamento d inner join funcionario f
+from departamento d 
+inner join funcionario f
 where d.numero_departamento = f.numero_departamento group by d.nome_departamento;
 ``` 
 | departamento  | media_salarial |
