@@ -157,7 +157,7 @@ p.numero_projeto = t.numero_projeto and f.cpf = t.cpf_funcionario order by p.num
 ```
 
 | departamento  | projeto         | nome             | horas |
-|---------------|-----------------+------------------|-------|
+|---------------|-----------------|------------------|-------|
 | Pesquisa      | ProdutoX        | João B Silva     |  32.5 |
 | Pesquisa      | ProdutoX        | Joice A Leite    |  20.0 |
 | Pesquisa      | ProdutoY        | João B Silva     |   7.5 |
@@ -227,3 +227,106 @@ where f.cpf = t.cpf_funcionario and p.numero_projeto = t.numero_projeto group by
 | Joice A Leite    | ProdutoX        |    25000.00 |
 | Ronaldo K Lima   | ProdutoZ        |    38000.00 |
 | Jorge E Brito    | Reorganização   |    55000.00 |
+
+<br>
+
+# **Questão 12**
+```
+select d.nome_departamento as departamento, p.nome_projeto as projeto,
+concat(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome, t.horas as horas
+from funcionario f inner join departamento d inner join projeto p inner join trabalha_em t
+where f.cpf = t.cpf_funcionario and p.numero_projeto = t.numero_projeto and (t.horas = 0 or t.horas = null) group by f.primeiro_nome;
+```
+
+| departamento | projeto       | nome          | horas |
+|--------------|---------------|---------------|-------|
+| Pesquisa     | Reorganização | Jorge E Brito |   0.0 |
+
+<br>
+
+# **Questão 13**
+```
+select concat(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome,
+case when sexo = 'M' then 'masculino' when sexo = 'm' then 'masculino'
+when sexo = 'f' then 'feminino' when sexo = 'f' then 'feminino' end as sexo,
+floor(datediff(curdate(), f.data_nascimento)/365.25) as idade
+from funcionario f
+union
+select d.nome_dependente as nome,
+case when sexo = 'M' then 'masculino' when sexo = 'm' then 'masculino'
+when sexo = 'F' then 'Feminino' when sexo = 'f' then 'Feminino' end as sexo,
+floor(datediff(curdate(), d.data_nascimento)/365.25) as idade
+from dependente d order by idade;
+```
+
+| nome             | sexo      | idade |
+|------------------|-----------|-------|
+| Alícia           | Feminino  |    33 |
+| Michael          | masculino |    34 |
+| Alícia           | Feminino  |    36 |
+| Tiago            | masculino |    38 |
+| Joice A Leite    | feminino  |    49 |
+| André V Pereira  | masculino |    53 |
+| Alice J Zelaya   | feminino  |    54 |
+| Elizabeth        | Feminino  |    54 |
+| João B Silva     | masculino |    57 |
+| Ronaldo K Lima   | masculino |    59 |
+| Janaína          | Feminino  |    64 |
+| Fernando T Wong  | masculino |    66 |
+| Jennifer S Souza | feminino  |    80 |
+| Antonio          | masculino |    80 |
+| Jorge E Brito    | masculino |    84 |
+
+<br>
+
+# **Questão 14**
+```
+select d.nome_departamento as departamento, count(f.numero_departamento) as numero_funcionario
+from funcionario f inner join departamento d
+where f.numero_departamento = d.numero_departamento group by d.nome_departamento;
+```
+
+| departamento  | numero_funcionario |
+|---------------|--------------------|
+| Pesquisa      |                  4 |
+| Matriz        |                  1 |
+| Administração |                  3 |
+
+<br>
+
+# **Questão 15**
+```
+select distinct concat(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome,
+d.nome_departamento as departamento, 
+p.nome_projeto as projeto
+from departamento d inner join projeto p inner join trabalha_em t inner join funcionario f 
+where d.numero_departamento = f.numero_departamento and p.numero_projeto = t.numero_projeto and
+t.cpf_funcionario = f.cpf
+union
+select distinct concat(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as Nome,
+d.nome_departamento as departamento, 
+'sem projeto' as projeto
+from departamento d inner join projeto p inner join trabalha_em t inner join funcionario f 
+where d.numero_departamento = f.numero_departamento and p.numero_projeto = t.numero_projeto and
+(f.cpf not in (select t.cpf_funcionario from trabalha_em t));
+```
+
+| nome             | departamento  | projeto         |
+|------------------|---------------|-----------------|
+| João B Silva     | Pesquisa      | ProdutoX        |
+| João B Silva     | Pesquisa      | ProdutoY        |
+| Fernando T Wong  | Pesquisa      | ProdutoY        |
+| Fernando T Wong  | Pesquisa      | ProdutoZ        |
+| Fernando T Wong  | Pesquisa      | Informatização  |
+| Fernando T Wong  | Pesquisa      | Reorganização   |
+| Joice A Leite    | Pesquisa      | ProdutoX        |
+| Joice A Leite    | Pesquisa      | ProdutoY        |
+| Ronaldo K Lima   | Pesquisa      | ProdutoZ        |
+| Jorge E Brito    | Matriz        | Reorganização   |
+| Jennifer S Souza | Administração | Reorganização   |
+| Jennifer S Souza | Administração | Novosbenefícios |
+| André V Pereira  | Administração | Informatização  |
+| André V Pereira  | Administração | Novosbenefícios |
+| Alice J Zelaya   | Administração | Informatização  |
+| Alice J Zelaya   | Administração | Novosbenefícios |
+
