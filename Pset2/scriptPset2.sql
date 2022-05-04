@@ -1,3 +1,5 @@
+-- Todos os scripts devem ser testado no MySql
+
 -- 01
 select avg(f.salario) as media_salario, d.nome_departamento 
 from funcionario f 
