@@ -213,7 +213,7 @@ where d.numero_departamento = f.numero_departamento group by d.nome_departamento
 
 # **Questão 11**
 ``` SQL
-select concat(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) "nome
+select concat(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) "nome"
 p.nome_projeto "projeto",
 concat(t.horas, 'h') "horas",
 concat('$', round((t.horas*50), 2)) "recebido"
