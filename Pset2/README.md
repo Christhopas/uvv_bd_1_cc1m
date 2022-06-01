@@ -9,7 +9,7 @@
 </div>
 
 # **Questão 1**
-```
+``` SQL
 select avg(f.salario) as media_salario, d.nome_departamento 
 from funcionario f 
 inner join departamento d 
@@ -26,7 +26,7 @@ group by d.nome_departamento;
 <br>
 
 # **Questão 2**
-```
+``` SQL
 select avg(f.salario) as media_salario, f.sexo
 from funcionario f
 group by f.sexo;
@@ -40,7 +40,7 @@ group by f.sexo;
 <br>
 
 # **Questão 3**
-```
+``` SQL
 select nome_departamento as departamento, concat(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome, data_nascimento as data_de_nascimento,
 floor(DATEDIFF(CURDATE(),data_nascimento)/365.25) as idade, 
 salario as salario 
@@ -62,7 +62,7 @@ where f.numero_departamento = d.numero_departamento order by nome_departamento;
 <br>
 
 # **Questão 4**
-```
+``` SQL
 select concat(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome, floor(datediff(curdate(), data_nascimento)/365.25) as idade, 
 salario as salario, cast((salario*1.2) as decimal(10,2)) as salario_reajuste from funcionario f
 where salario < '35000'
@@ -86,7 +86,7 @@ where salario >= '35000';
 <br>
 
 # **Questão 5**
-```
+``` SQL
 select nome_departamento as departamento, g.primeiro_nome as gerente, f.primeiro_nome as funcionario, salario as salarios
 from departamento d 
 inner join funcionario f, 
@@ -108,7 +108,7 @@ where d.numero_departamento = f.numero_departamento and g.cpf = d.cpf_gerente or
 <br>
 
 # **Questão 6**
-```
+``` SQL
 select concat(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome, dto.nome_departamento as departamento,
 dpd.nome_dependente as dependente, floor(datediff(curdate(), dpd.data_nascimento)/365.25) as idade_dependente,
 case when dpd.sexo = 'M' then 'masculino' when dpd.sexo = 'm' then 'masculino'
@@ -130,7 +130,7 @@ inner join departamento dto on f.numero_departamento = dto.numero_departamento i
 <br>
 
 # **Questão 7**
-```
+``` SQL
 select distinct concat(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome, dp.nome_departamento as departamento,
 cast((f.salario) as decimal(10,2)) as salario from funcionario f
 inner join departamento dp inner join dependente dnp
@@ -149,7 +149,7 @@ f.cpf not in (select dnp.cpf_funcionario from dependente dnp);
 <br>
 
 # **Questão 8**
-```
+``` SQL
 select d.nome_departamento as departamento, p.nome_projeto as projeto,
 concat(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome, t.horas as horas
 from funcionario f inner join departamento d inner join projeto p inner join trabalha_em t
@@ -179,7 +179,7 @@ p.numero_projeto = t.numero_projeto and f.cpf = t.cpf_funcionario order by p.num
 <br>
 
 # **Questão 9**
-```
+``` SQL
 select d.nome_departamento as departamento, p.nome_projeto as projeto, sum(t.horas) as total_horas
 from departamento d inner join projeto p inner join trabalha_em t
 where d.numero_departamento = p.numero_departamento AND p.numero_projeto = t.numero_projeto group by p.nome_projeto;
@@ -197,7 +197,7 @@ where d.numero_departamento = p.numero_departamento AND p.numero_projeto = t.num
 <br>
 
 # **Questão 10**
-```
+``` SQL
 select d.nome_departamento as departamento, cast(avg(f.salario) as decimal(10,2)) as media_salarial
 from departamento d 
 inner join funcionario f
@@ -212,28 +212,42 @@ where d.numero_departamento = f.numero_departamento group by d.nome_departamento
 <br>
 
 # **Questão 11**
-```
-select concat(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome, p.nome_projeto as projeto,
-cast((f.salario) as decimal(10,2)) as recebimento
-from funcionario f inner join projeto p inner join trabalha_em t
-where f.cpf = t.cpf_funcionario and p.numero_projeto = t.numero_projeto group by f.primeiro_nome;
+``` SQL
+select concat(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) "nome
+p.nome_projeto "projeto",
+concat(t.horas, 'h') "horas",
+concat('$', round((t.horas*50), 2)) "recebido"
+from trabalha_em t
+inner join 
+funcionario f ON f.cpf = t.cpf_funcionario
+inner join 
+projeto p on p.numero_projeto = t.numero_projeto
+order by t.horas;
 ```
 
-| nome             | projeto         | recebimento |
-|------------------|-----------------|-------------|
-| Fernando T Wong  | Informatização  |    40000.00 |
-| André V Pereira  | Informatização  |    25000.00 |
-| Alice J Zelaya   | Informatização  |    25000.00 |
-| Jennifer S Souza | Novosbenefícios |    43000.00 |
-| João B Silva     | ProdutoX        |    30000.00 |
-| Joice A Leite    | ProdutoX        |    25000.00 |
-| Ronaldo K Lima   | ProdutoZ        |    38000.00 |
-| Jorge E Brito    | Reorganização   |    55000.00 |
+nome  | projeto   | horas | recebido
+:----------------|:------------------|:------|:-------------
+Jorge E Brito    | Reorganização     | NULL  | NULL           
+André V Pereira  | Novos Benefícios  | 5.0h  | $250.00       
+João B Silva     | Produto Y         | 7.5h  | $375.00       
+Fernando T Wong  | Reorganização     | 10.0h | $500.00       
+Fernando T Wong  | Produto Z         | 10.0h | $500.00       
+Alice J Zelaya   | Informatização    | 10.0h | $500.00       
+Fernando T Wong  | Produto Y         | 10.0h | $500.00       
+Fernando T Wong  | Informatização    | 10.0h | $500.00       
+Jennifer S Souza | Reorganização     | 15.0h | $750.00       
+Jennifer S Souza | Novos Benefícios  | 20.0h | $1000.00      
+Joice A Leite    | Produto Y         | 20.0h | $1000.00      
+Joice A Leite    | Produto X         | 20.0h | $1000.00      
+Alice J Zelaya   | Novos Benefícios  | 30.0h | $1500.00      
+João B Silva     | Produto X         | 32.5h | $1625.00      
+André V Pereira  | Informatização    | 35.0h | $1750.00      
+Ronaldo K Lima   | Produto Z         | 40.0h | $2000.00   
 
 <br>
 
 # **Questão 12**
-```
+``` SQL
 select d.nome_departamento as departamento, p.nome_projeto as projeto,
 concat(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome, t.horas as horas
 from funcionario f inner join departamento d inner join projeto p inner join trabalha_em t
@@ -247,7 +261,7 @@ where f.cpf = t.cpf_funcionario and p.numero_projeto = t.numero_projeto and (t.h
 <br>
 
 # **Questão 13**
-```
+``` SQL
 select concat(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome,
 case when sexo = 'M' then 'masculino' when sexo = 'm' then 'masculino'
 when sexo = 'f' then 'feminino' when sexo = 'f' then 'feminino' end as sexo,
@@ -282,7 +296,7 @@ from dependente d order by idade;
 <br>
 
 # **Questão 14**
-```
+``` SQL
 select d.nome_departamento as departamento, count(f.numero_departamento) as numero_funcionario
 from funcionario f inner join departamento d
 where f.numero_departamento = d.numero_departamento group by d.nome_departamento;
@@ -297,7 +311,7 @@ where f.numero_departamento = d.numero_departamento group by d.nome_departamento
 <br>
 
 # **Questão 15**
-```
+``` SQL
 select distinct concat(f.primeiro_nome, ' ', f.nome_meio, ' ', f.ultimo_nome) as nome,
 d.nome_departamento as departamento, 
 p.nome_projeto as projeto
