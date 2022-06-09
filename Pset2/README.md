@@ -1,12 +1,20 @@
 <div align="center">
   
 # **Design e Desenvolvimento de Bancos de Dados**
-## *PSet2*
-#### Aluno: Christopher Passos Thompson
-#### Prof. Abrantes Araújo Silva Filho
-#### Monitora: Suellen Miranda Amorim
-#### Turma: CC1M
+## *PSet1*
 </div>
+
+### Aluno: Christopher Passos Thompson
+### Prof. Abrantes Araújo Silva Filho
+### Monitora: Suellen Miranda Amorim
+### Turma: CC1M
+
+<div align="right">
+  
+["Where there is no property there is no injustice."](https://www.gutenberg.org/files/7370/7370-h/7370-h.htm)
+  <br>
+John Locke
+</div> 
 
 # **Questão 1**
 ``` SQL
