@@ -4,10 +4,10 @@
 ## *PSet1*
 </div>
 
-#### Aluno: Christopher Passos Thompson
-#### Prof. Abrantes Araújo Silva Filho
-#### Monitora: Suellen Miranda Amorim
-#### Turma: CC1M
+### Aluno: Christopher Passos Thompson
+### Prof. Abrantes Araújo Silva Filho
+### Monitora: Suellen Miranda Amorim
+### Turma: CC1M
 
 <div align="right">
   
