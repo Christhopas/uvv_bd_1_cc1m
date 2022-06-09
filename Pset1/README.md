@@ -11,12 +11,12 @@
 
 <div align="right">
   
-"Living is easy with eyes closed, misunderstanding all you see"
+["Living is easy with eyes closed, misunderstanding all you see"](https://www.youtube.com/watch?v=HtUH9z_Oey8&ab_channel=TheBeatlesVEVO)
   <br>
  John Lennon
 </div> 
 
-
+<br>
 
 # **1. Introdução**
 O presente trabalho tem como foco principal a implementação de um banco de dados de modelo empresarial, apresentado no livro Sistemas de Banco de Dados, 7ª edição, dos autores Elmasri & Navathe nos capituos 5 e 6. Os seguintes passos foram seguidos para que a execução total do Pset fosse um sucesso:
