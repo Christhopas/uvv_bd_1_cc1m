@@ -2,11 +2,20 @@
   
 # **Design e Desenvolvimento de Bancos de Dados**
 ## *PSet1*
+</div>
+
 #### Aluno: Christopher Passos Thompson
 #### Prof. Abrantes Araújo Silva Filho
 #### Monitora: Suellen Miranda Amorim
 #### Turma: CC1M
-</div>
+
+<div align="right">
+  
+"Living is easy with eyes closed, misunderstanding all you see"
+  <br>
+ John Lennon
+</div> 
+
 
 
 # **1. Introdução**
