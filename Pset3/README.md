@@ -1,13 +1,23 @@
 <div align="center">
   
-# **Design e Desenvolvimento de Bancos de Dados**
-## *PSet3*
-#### Aluno: Christopher Passos Thompson
-#### Prof. Abrantes Araújo Silva Filho
-#### Monitora: Suellen Miranda Amorim
-#### Turma: CC1M
+ # **Design e Desenvolvimento de Bancos de Dados**
+ ## *PSet3*
 </div>
 
+### Aluno: Christopher Passos Thompson
+### Prof. Abrantes Araújo Silva Filho
+### Monitora: Suellen Miranda Amorim
+### Turma: CC1M
+
+<div align="right">
+
+"Success is not final, failure is not fatal: it is the courage to continue that counts."
+  <br>
+Winston Churchill
+</div>
+
+<br>
+<br>
 
 # **1. Introdução**
 O seguinte trabalho foi baseado na descoberta do funcionamento de Queries SQL hierárquicas (recursivas), através de tutoriais que o Prof. Abrantes passou:
@@ -23,16 +33,18 @@ classificacao e inserir todos os dados no banco de dados “uvv” que criamos n
 Após toda a criação da tabela e os dados, foi o famoso "se vira nos 30", usando os tutoriais e aplicando no Pset cheguei em varias conclusões. Até que após 2 dias cheguei aonde seria realmente a  > *solução final:* <
 <br>
 ~~~SQL
-WITH recursive classificacao_P AS (
+WITH RECURSIVE classificacao_P AS (
 SELECT codigo, CONCAT(nome) AS nome, codigo_pai
 FROM classificacao
 WHERE codigo_pai is null
 UNION all
-SELECT cls.codigo, CONCAT(pr.nome,' ~> ', cls.nome), cls.codigo_pai
+SELECT cls.codigo, CONCAT(pr.nome || ' ~> ' || cls.nome), cls.codigo_pai
 FROM classificacao AS cls
 INNER JOIN classificacao_P AS pr ON pr.codigo = cls.codigo_pai
 WHERE cls.codigo_Pai IS NOT NULL)
-SELECT * FROM classificacao_P 
-ORDER BY classificacao_P.nome
-;
+SELECT codigo AS "Código",
+nome AS "Itens",
+codigo_pai AS "Código Pai"
+FROM classificacao_P 
+ORDER BY classificacao_P.nome;
 ~~~~
