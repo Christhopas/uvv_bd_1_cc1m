@@ -7,3 +7,32 @@
 #### Monitora: Suellen Miranda Amorim
 #### Turma: CC1M
 </div>
+
+
+# **1. Introdução**
+O seguinte trabalho foi baseado na descoberta do funcionamento de Queries SQL hierárquicas (recursivas), através de tutoriais que o Prof. Abrantes passou:
+> - [SQL Server: Introduction to Hierarchical Query Using a Recursive CTE3](https://blog.sqlauthority.com/2012/04/24/sql-server-introduction-to-hierarchical-query-using-a-recursive-cte-a-primer)
+> - [SQL Server: Recursive CTE4](https://www.sqlservertutorial.net/sql-server-basics/sql-server-recursive-cte)
+
+A resolução deste PSet consiste em obter todas as classificações de produtos, indicando claramente que classificação é filha e que classificação é pai.
+
+# **2. Como realizar este PSET?**
+Para iniciar a resolução do PSet3 foi necessário utilizar o arquivo [criaçãopset3.sql](https://github.com/Christhopas/uvv_bd_1_cc1m/blob/main/Pset3/cria%C3%A7%C3%A3opset3.sql), para criar a tabela
+classificacao e inserir todos os dados no banco de dados “uvv” que criamos no PostgreSQL no [PSet1](https://github.com/Christhopas/uvv_bd_1_cc1m/blob/main/Pset1/scriptpostgres.sql). <br>
+<br>
+Após toda a criação da tabela e os dados, foi o famoso "se vira nos 30", usando os tutoriais e aplicando no Pset cheguei em varias conclusões. Até que após 2 dias cheguei aonde seria realmente a  > *solução final:* <
+<br>
+~~~SQL
+WITH recursive classificacao_P AS (
+SELECT codigo, CONCAT(nome) AS nome, codigo_pai
+FROM classificacao
+WHERE codigo_pai is null
+UNION all
+SELECT cls.codigo, CONCAT(pr.nome,' ~> ', cls.nome), cls.codigo_pai
+FROM classificacao AS cls
+INNER JOIN classificacao_P AS pr ON pr.codigo = cls.codigo_pai
+WHERE cls.codigo_Pai IS NOT NULL)
+SELECT * FROM classificacao_P 
+ORDER BY classificacao_P.nome
+;
+~~~~
