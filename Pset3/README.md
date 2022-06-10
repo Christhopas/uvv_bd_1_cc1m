@@ -47,8 +47,3 @@ codigo_pai AS "Código Pai"
 FROM classificacao_P 
 ORDER BY classificacao_P.nome;
 ~~~~
-
-<div align="center">
-  
- *Tenha a humildade de não plagiar, esse pset vale apenas 1 ponto, melhor deixar de ganhar esse ponto do que ferir sua integridade*
-</div>
