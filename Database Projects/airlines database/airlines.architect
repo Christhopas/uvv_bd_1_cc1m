@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architect-project version="1.0" appversion="1.0.9">
+ <project-name>aircompany database</project-name>
+ <print-settings numCopies="1" zoom="1.0" pageNumbersPrinted="true" orientation="1" paperWidth="612.0" paperHeight="792.0" leftBorder="50.0" rightBorder="50.0" topBorder="50.0" bottomBorder="50.0" />
+ <project-data-sources>
+  <data-source id="DS0">
+   <property key="Logical" value="PlayPen Database" />
+  </data-source>
+ </project-data-sources>
+ <source-databases>
+ </source-databases>
+ <target-database id="ppdb" dbcs-ref="DS0">
+  <table id="TAB1" populated="true" UUID="f0eea2b6-14f8-4c60-bdb2-aec77939347f" name="passengers" objectType="TABLE" physicalName="passengers" >
+   <remarks>Table that stores passenger information.</remarks>
+   <folder id="FOLTAB11" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL2" populated="true" UUID="a32d43fb-7181-44c7-abd1-4e537d58ac00" autoIncrement="false" autoIncrementSequenceName="passengers_cod_passenger_seq" defaultValue="" name="cod_passenger" nullable="0" physicalName="cod_passenger" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>Table&apos;s PK. Passenger identifier code.</remarks>
+    </column>
+    <column id="COL3" populated="true" UUID="6e497d79-0622-47db-82e4-fdbb44e028d4" autoIncrement="false" autoIncrementSequenceName="passengers_name_seq" defaultValue="" name="name" nullable="0" physicalName="name" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>First name of the passenger</remarks>
+    </column>
+    <column id="COL4" populated="true" UUID="983445ae-7277-4811-9672-2b87803adc42" autoIncrement="false" autoIncrementSequenceName="passengers_surname_seq" defaultValue="" name="surname" nullable="0" physicalName="surname" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Surname of the passenger</remarks>
+    </column>
+    <column id="COL5" populated="true" UUID="e07f32e1-f1f1-4b94-804d-d6e1edbba5da" autoIncrement="false" autoIncrementSequenceName="passengers_date_of_birth_seq" defaultValue="" name="date_of_birth" nullable="0" physicalName="date_of_birth" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks>Passenger date of birth</remarks>
+    </column>
+    <column id="COL6" populated="true" UUID="877a51e9-3d11-43af-a9e9-1abd85935bd4" autoIncrement="false" autoIncrementSequenceName="passengers_sex_seq" defaultValue="" name="sex" nullable="0" physicalName="sex" precision="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
+     <remarks>Passenger sex</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB13" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB12" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB14" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX7" populated="true" UUID="e18b2c98-8338-46ea-8f54-4ec5ba92d131" clustered="false" name="pk_passengers" physicalName="pk_passengers" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC8" populated="true" UUID="bef1f63b-7c29-4eb7-bb74-c6b5501b2624" ascendingOrDescending="UNSPECIFIED" column-ref="COL2" name="cod_passenger" physicalName="cod_passenger" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB9" populated="true" UUID="6d736209-951d-4c67-8682-529345e29e1a" name="bookings" objectType="TABLE" physicalName="bookings" >
+   <remarks>Table that stores the passenger&apos;s flight booking details.</remarks>
+   <folder id="FOLTAB91" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL10" populated="true" UUID="adb87c28-9fa9-41de-9572-5e35f637a27b" autoIncrement="false" autoIncrementSequenceName="bookings_cod_passenger_seq" defaultValue="" name="cod_passenger" nullable="0" physicalName="cod_passenger" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>PFK from the passengers table. Passenger identifier code.</remarks>
+    </column>
+    <column id="COL11" populated="true" UUID="ecc1f982-89d3-49f7-845e-62f3deea2404" autoIncrement="false" autoIncrementSequenceName="bookings_cod_flight_seq" defaultValue="" name="cod_flight" nullable="0" physicalName="cod_flight" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>PFK from the flights table. Flight identifier code.</remarks>
+    </column>
+    <column id="COL12" populated="true" UUID="17146b19-2642-4870-8f52-15a2afd02b5e" autoIncrement="false" autoIncrementSequenceName="bookings_date_start_seq" defaultValue="" name="date_start" nullable="0" physicalName="date_start" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks>Booking start date.</remarks>
+    </column>
+    <column id="COL13" populated="true" UUID="ca05074f-7a7f-4982-b32e-ba9b23f9c58d" autoIncrement="false" autoIncrementSequenceName="bookings_date_end_seq" defaultValue="" name="date_end" nullable="0" physicalName="date_end" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks>End date of booking.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB93" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB92" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB94" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX14" populated="true" UUID="373e04bf-60a7-4401-a340-085815faa7c9" clustered="false" name="pk_bookings" physicalName="pk_reservations" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC15" populated="true" UUID="31564de9-4fb9-4448-836d-68406313a3fd" ascendingOrDescending="UNSPECIFIED" column-ref="COL10" name="cod_passenger" physicalName="cod_passenger" />
+     <index-column id="IDC16" populated="true" UUID="2c5a113f-ef3e-4e2e-b805-4fad50f084e2" ascendingOrDescending="UNSPECIFIED" column-ref="COL11" name="cod_flight" physicalName="cod_flight" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB17" populated="true" UUID="c7008c04-c87b-44a6-9d17-ae185fa3c290" name="airports" objectType="TABLE" physicalName="airports" >
+   <remarks>Table that stores airport information.</remarks>
+   <folder id="FOLTAB171" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL18" populated="true" UUID="c399f079-a283-452f-b3de-107172ef1648" autoIncrement="false" autoIncrementSequenceName="airports_cod_airport_seq" defaultValue="" name="cod_airport" nullable="0" physicalName="cod_airport" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>table&apos;s PK. Airport identifier code.
+</remarks>
+    </column>
+    <column id="COL19" populated="true" UUID="4aff5811-fa39-4b1f-97f9-28e2c2c67887" autoIncrement="false" autoIncrementSequenceName="airports_cod_telephone_seq" defaultValue="" name="cod_telephone" nullable="0" physicalName="cod_telephone" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>Phone table FK. Phone identifier code.</remarks>
+    </column>
+    <column id="COL20" populated="true" UUID="12059ee9-6274-4608-8306-8f46473ea5d4" autoIncrement="false" autoIncrementSequenceName="airports_cod_country_seq" defaultValue="" name="cod_country" nullable="0" physicalName="cod_country" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>FK from the country table. Country identifier code.</remarks>
+    </column>
+    <column id="COL21" populated="true" UUID="e21fdf85-4a48-4379-bec1-e6e7a9203aaa" autoIncrement="false" autoIncrementSequenceName="airports_cod_city_seq" defaultValue="" name="cod_city" nullable="0" physicalName="cod_city" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>FK from the city table. City identifier code.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB173" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB172" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB174" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX22" populated="true" UUID="0cbb5b2d-af95-41e2-968a-08d05b076768" clustered="false" name="pk_airports" physicalName="pk_airports" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC23" populated="true" UUID="dedc5f21-af77-45c7-b90b-02cd09125ea5" ascendingOrDescending="UNSPECIFIED" column-ref="COL18" name="cod_airport" physicalName="cod_airport" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB24" populated="true" UUID="d55d9865-d437-4619-b585-ca19729d9de7" name="luggage" objectType="TABLE" physicalName="luggage" >
+   <remarks>Table that stores baggage information.</remarks>
+   <folder id="FOLTAB241" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL25" populated="true" UUID="2659da7c-619e-4922-bbe6-232d592b4a63" autoIncrement="false" autoIncrementSequenceName="luggage_cod_luggage_seq" defaultValue="" name="cod_luggage" nullable="0" physicalName="cod_luggage" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>table&apos;s PK. Baggage identifier code.</remarks>
+    </column>
+    <column id="COL26" populated="true" UUID="9ecdfbde-6913-45d8-a2d3-3042c254423c" autoIncrement="false" autoIncrementSequenceName="luggage_cod_passenger_seq" defaultValue="" name="cod_passenger" nullable="0" physicalName="cod_passenger" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>PFK from the passengers table. Passenger identifier code.</remarks>
+    </column>
+    <column id="COL27" populated="true" UUID="743964e0-8d3c-4714-943a-997a6a6b1dc2" autoIncrement="false" autoIncrementSequenceName="luggage_weight_seq" defaultValue="" name="weight" nullable="0" physicalName="weight" precision="4" referenceCount="1" scale="2" sourceDataTypeName="UserDefinedSQLType" type="3" userDefinedTypeUUID="cc1304ea-628a-4fc5-a84a-06ba14759152" >
+     <remarks>Luggage weight in kilograms.</remarks>
+    </column>
+    <column id="COL28" populated="true" UUID="60665355-e741-4f7e-b468-3e526f5ac9bf" autoIncrement="false" autoIncrementSequenceName="luggage_fragile_seq" defaultValue="" name="fragile" nullable="1" physicalName="fragile" precision="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
+     <remarks>Frailty indicator (Y for &quot;yes&quot; and N for &quot;no&quot;).</remarks>
+    </column>
+    <column id="COL29" populated="true" UUID="90f499dd-dbd0-49c9-87e8-730b2fe3515b" autoIncrement="false" autoIncrementSequenceName="luggage_cod_flight_seq" defaultValue="" name="cod_flight" nullable="0" physicalName="cod_flight" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>FK from the flights table. Flight identifier code.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB243" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB242" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB244" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX30" populated="true" UUID="17e03896-5a2b-41ab-a550-3fc7f56604bb" clustered="false" name="pk_luggage" physicalName="pk_luggage" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC31" populated="true" UUID="b956c1c6-3f45-4f50-b1c9-459b46ea9c90" ascendingOrDescending="UNSPECIFIED" column-ref="COL25" name="cod_luggage" physicalName="cod_luggage" />
+     <index-column id="IDC32" populated="true" UUID="b3eeec45-fcb2-4d89-ac00-e696ed3f3098" ascendingOrDescending="UNSPECIFIED" column-ref="COL26" name="cod_passenger" physicalName="cod_passenger" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB33" populated="true" UUID="d1d88cff-d228-451c-b122-4237b8516444" name="flights" objectType="TABLE" physicalName="flights" >
+   <remarks>Table that stores flight information.</remarks>
+   <folder id="FOLTAB331" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL34" populated="true" UUID="2a5b0156-fd7c-44e6-a53d-76fec484397f" autoIncrement="false" autoIncrementSequenceName="flights_cod_flight_seq" defaultValue="" name="cod_flight" nullable="0" physicalName="cod_flight" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>table&apos;s PK. Flight identifier code.</remarks>
+    </column>
+    <column id="COL35" populated="true" UUID="5a73d54c-ae56-48ba-bb2c-35b9e1ddec9a" autoIncrement="false" autoIncrementSequenceName="flights_date_departure_seq" defaultValue="" name="date_departure" nullable="0" physicalName="date_departure" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks>Flight departure date.</remarks>
+    </column>
+    <column id="COL36" populated="true" UUID="7c708f09-e3bb-4c24-9107-c1935d3793b4" autoIncrement="false" autoIncrementSequenceName="flights_time_departure_seq" defaultValue="" name="time_departure" nullable="0" physicalName="time_departure" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="92" userDefinedTypeUUID="10d6960f-169d-47c2-860a-37341342b1d5" >
+     <remarks>Flight departure time.</remarks>
+    </column>
+    <column id="COL37" populated="true" UUID="c094457e-34f5-4434-98f9-1f5d5c2e788b" autoIncrement="false" autoIncrementSequenceName="flights_cod_airport_to_seq" defaultValue="" name="cod_airport_to" nullable="0" physicalName="cod_airport_to" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>FK from the airports table. Destination airport identifier code.</remarks>
+    </column>
+    <column id="COL38" populated="true" UUID="f9e3a208-dd61-4033-8a5b-3eb1a85c3984" autoIncrement="false" autoIncrementSequenceName="flights_cod_airport_from_seq" defaultValue="" name="cod_airport_from" nullable="0" physicalName="cod_airport_from" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>FK from the airports table. Identifier code of the airport of origin.
+</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB333" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB332" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB334" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX39" populated="true" UUID="c0672452-fc43-47ce-b671-39c2673b3686" clustered="false" name="pk_flights" physicalName="pk_flights" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC40" populated="true" UUID="5eb8d43e-9f16-4fc2-988e-aa85408d693c" ascendingOrDescending="UNSPECIFIED" column-ref="COL34" name="cod_flight" physicalName="cod_flight" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB41" populated="true" UUID="4f93f398-2ecd-4979-b444-0dbca33bc7b4" name="commissioners" objectType="TABLE" physicalName="commissioners" >
+   <remarks>Table that stores the information of the commissioners.</remarks>
+   <folder id="FOLTAB411" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL42" populated="true" UUID="d3474054-d99e-4490-b622-514e38ebf0a0" autoIncrement="false" autoIncrementSequenceName="commissioners_cod_crew_seq" defaultValue="" name="cod_crew" nullable="0" physicalName="cod_crew" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>PFK from the crew table. Crew identifier code.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB413" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB412" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB414" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX43" populated="true" UUID="cfa78afc-9163-4961-871e-80c532d329a6" clustered="false" name="pk_commissioners" physicalName="pk_commissioners" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC44" populated="true" UUID="21661612-30dd-4184-b88c-160fe3be638a" ascendingOrDescending="UNSPECIFIED" column-ref="COL42" name="cod_crew" physicalName="cod_crew" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB45" populated="true" UUID="a0736d88-4a19-44f0-adb5-e0ae01556cbb" name="pilots" objectType="TABLE" physicalName="pilots" >
+   <remarks>Table that stores pilot information.</remarks>
+   <folder id="FOLTAB451" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL46" populated="true" UUID="761d847c-495e-47ba-a117-d9114b29c1d6" autoIncrement="false" autoIncrementSequenceName="pilots_cod_crew_seq" defaultValue="" name="cod_crew" nullable="0" physicalName="cod_crew" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>PFK from the crew table. Crew identifier code.</remarks>
+    </column>
+    <column id="COL47" populated="true" UUID="1adc9074-380e-4209-97cf-c51be3f5bc93" autoIncrement="false" autoIncrementSequenceName="pilots_brevet_number_seq" defaultValue="" name="brevet_number" nullable="0" physicalName="brevet_number" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
+     <remarks>Pilot&apos;s brevet number.</remarks>
+    </column>
+    <column id="COL48" populated="true" UUID="36d0ef42-8af3-4f78-9b8d-6385be58e052" autoIncrement="false" autoIncrementSequenceName="pilots_date_issue_brevet_seq" defaultValue="" name="date_issue_brevet" nullable="0" physicalName="date_issue_brevet" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+     <remarks>Date of issuance of the brevet.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB453" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB452" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB454" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX49" populated="true" UUID="09502e03-e0ef-42b3-b79f-70e32aa897be" clustered="false" name="pk_pilots" physicalName="pk_pilots" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC50" populated="true" UUID="ad8ea8a9-a2c4-4a0c-801e-62b428ed69d0" ascendingOrDescending="UNSPECIFIED" column-ref="COL46" name="cod_crew" physicalName="cod_crew" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB51" populated="true" UUID="07c3251e-45e0-43d3-a085-82d269b551ea" name="crew" objectType="TABLE" physicalName="crew" >
+   <remarks>Table that stores crew information.</remarks>
+   <folder id="FOLTAB511" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL52" populated="true" UUID="a7191da4-2b32-44ed-a40b-c4961b33dc79" autoIncrement="false" autoIncrementSequenceName="crew_cod_crew_seq" defaultValue="" name="cod_crew" nullable="0" physicalName="cod_crew" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>table&apos;s PK. Crew identifier code.</remarks>
+    </column>
+    <column id="COL53" populated="true" UUID="4a99a77e-34e4-4880-8b00-5c573fb8e829" autoIncrement="false" autoIncrementSequenceName="crew_name_seq" defaultValue="" name="name" nullable="0" physicalName="name" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Name of the crewmate</remarks>
+    </column>
+    <column id="COL54" populated="true" UUID="1705cab5-0f88-4639-a421-3c4e59b2027f" autoIncrement="false" autoIncrementSequenceName="crew_address_seq" defaultValue="" name="address" nullable="0" physicalName="address" precision="200" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Addres of the crewmate</remarks>
+    </column>
+    <column id="COL55" populated="true" UUID="39b17c5b-31cd-4f60-99c1-880e52249377" autoIncrement="false" autoIncrementSequenceName="crew_passport_seq" defaultValue="" name="passport" nullable="0" physicalName="passport" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
+     <remarks>Number of the crewmate passport</remarks>
+    </column>
+    <column id="COL56" populated="true" UUID="3c8badff-1257-4569-b546-f952abe7b40e" autoIncrement="false" autoIncrementSequenceName="crew_surname_seq" defaultValue="" name="surname" nullable="0" physicalName="surname" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Surname of the crewmate</remarks>
+    </column>
+    <column id="COL57" populated="true" UUID="59fb926e-f3be-4ef2-8cf5-587cbb474793" autoIncrement="false" autoIncrementSequenceName="crew_cod_telephone_seq" defaultValue="" name="cod_telephone" nullable="0" physicalName="cod_telephone" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>FK from the telephone table. Telephone identifier code.</remarks>
+    </column>
+    <column id="COL58" populated="true" UUID="f779ff98-d562-4d93-a003-fda43fd6be00" autoIncrement="false" autoIncrementSequenceName="crew_cod_postcode_seq" defaultValue="" name="cod_postcode" nullable="0" physicalName="cod_postcode" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>FK from the postcode table. Postcode identifier code.</remarks>
+    </column>
+    <column id="COL59" populated="true" UUID="e5316ae0-cf12-4118-bba3-bafdbd1ea729" autoIncrement="false" autoIncrementSequenceName="crew_cod_city_seq" defaultValue="" name="cod_city" nullable="0" physicalName="cod_city" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>FK from the city table. City identifier code.</remarks>
+    </column>
+    <column id="COL60" populated="true" UUID="15c822e8-a563-48a8-8562-c78a89623ad1" autoIncrement="false" autoIncrementSequenceName="crew_cod_country_seq" defaultValue="" name="cod_country" nullable="0" physicalName="cod_country" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>FK from the country table. Country identifier code.</remarks>
+    </column>
+    <column id="COL61" populated="true" UUID="97ce3e9d-764c-4dd6-b338-bd403e2358e5" autoIncrement="false" autoIncrementSequenceName="crew_cod_language_seq" defaultValue="" name="cod_language" nullable="0" physicalName="cod_language" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>FK from the language table. Language identifier code.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB513" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB512" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB514" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX62" populated="true" UUID="39019b37-02a9-4ad7-a25f-190ac791fa07" clustered="false" name="pk_crew" physicalName="pk_crew" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC63" populated="true" UUID="389d55bf-eaf3-486e-aa49-d19d2081f744" ascendingOrDescending="UNSPECIFIED" column-ref="COL52" name="cod_crew" physicalName="cod_crew" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB64" populated="true" UUID="afde6388-f699-4b17-86b4-457b1ecb2c8e" name="country" objectType="TABLE" physicalName="country" >
+   <remarks>Table that stores countries.</remarks>
+   <folder id="FOLTAB641" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL65" populated="true" UUID="b6a5099d-3cee-434d-bcec-63756fb94d3a" autoIncrement="false" autoIncrementSequenceName="country_cod_country_seq" defaultValue="" name="cod_country" nullable="0" physicalName="cod_country" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>table&apos;s PK. Country identifier code.</remarks>
+    </column>
+    <column id="COL66" populated="true" UUID="f0628610-684d-48b1-880b-ac4cbb0671cd" autoIncrement="false" autoIncrementSequenceName="country_country_seq" defaultValue="" name="country" nullable="0" physicalName="country" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Country name</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB643" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB642" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB644" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX67" populated="true" UUID="1f59b6cb-810e-4b7d-955f-8b12007d649a" clustered="false" name="pk_country" physicalName="pk_country" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC68" populated="true" UUID="9bee3260-d80c-47a3-96c0-ea975231b60a" ascendingOrDescending="UNSPECIFIED" column-ref="COL65" name="cod_country" physicalName="cod_country" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB69" populated="true" UUID="3b5d8426-1b05-4e72-ba07-457840a9cf9b" name="city" objectType="TABLE" physicalName="city" >
+   <remarks>Table that stores cities.</remarks>
+   <folder id="FOLTAB691" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL70" populated="true" UUID="3a9f917a-53b8-4592-8850-892464f33fec" autoIncrement="false" autoIncrementSequenceName="city_cod_city_seq" defaultValue="" name="cod_city" nullable="0" physicalName="cod_city" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>table&apos;s PK. City identifier code.</remarks>
+    </column>
+    <column id="COL71" populated="true" UUID="36db00c6-d651-432d-b434-182532d78c52" autoIncrement="false" autoIncrementSequenceName="city_city_seq" defaultValue="" name="city" nullable="0" physicalName="city" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Name of the city</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB693" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB692" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB694" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX72" populated="true" UUID="9ab66edd-b7ad-43f9-991f-ec770761abf4" clustered="false" name="pk_city" physicalName="pk_city" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC73" populated="true" UUID="8fd359c1-9d38-41c6-af87-25c85d0fe6a3" ascendingOrDescending="UNSPECIFIED" column-ref="COL70" name="cod_city" physicalName="cod_city" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB74" populated="true" UUID="54ea9a33-a466-4b32-a4a6-ff1aa598a2b9" name="postcode" objectType="TABLE" physicalName="postcode" >
+   <remarks>Table that stores the zip codes.</remarks>
+   <folder id="FOLTAB741" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL75" populated="true" UUID="7de23cf3-bd01-41a6-9163-52c9a4efe224" autoIncrement="false" autoIncrementSequenceName="postcode_cod_postcode_seq" defaultValue="" name="cod_postcode" nullable="0" physicalName="cod_postcode" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>table&apos;s PK. Postcode identifier code.</remarks>
+    </column>
+    <column id="COL76" populated="true" UUID="e3ee93bd-ff64-49de-b155-66b99bb79869" autoIncrement="false" autoIncrementSequenceName="postcode_postcode_seq" defaultValue="" name="postcode" nullable="0" physicalName="postcode" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Postcode number</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB743" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB742" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB744" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX77" populated="true" UUID="ffd51d51-ebe9-4f84-bae7-fb45611293fe" clustered="false" name="pk_postcode" physicalName="pk_postcode" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC78" populated="true" UUID="ab6751cf-4b17-42e4-944e-fead4c7120e9" ascendingOrDescending="UNSPECIFIED" column-ref="COL75" name="cod_postcode" physicalName="cod_postcode" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB79" populated="true" UUID="c9dcf453-c764-4318-a160-b58e9b237754" name="telephone" objectType="TABLE" physicalName="telephone" >
+   <remarks>Table that stores the telephone information.</remarks>
+   <folder id="FOLTAB791" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL80" populated="true" UUID="f9ba69b2-0fdc-4987-ac8b-d507b07083f4" autoIncrement="false" autoIncrementSequenceName="telephone_cod_telephone_seq" defaultValue="" name="cod_telephone" nullable="0" physicalName="cod_telephone" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>table&apos;s PK. Phone identifier code.</remarks>
+    </column>
+    <column id="COL81" populated="true" UUID="85ead013-59ec-4d04-92f6-430e5e72b657" autoIncrement="false" autoIncrementSequenceName="telephone_telephone_number_seq" defaultValue="" name="telephone_number" nullable="0" physicalName="telephone_number" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Phone number (numeric digits only).</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB793" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB792" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB794" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX82" populated="true" UUID="0209d416-9b22-4404-97e5-39f3cbb793b9" clustered="false" name="pk_telephone" physicalName="pk_telephone" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC83" populated="true" UUID="0a357128-7344-4d14-86e7-c00253f2bc02" ascendingOrDescending="UNSPECIFIED" column-ref="COL80" name="cod_telephone" physicalName="cod_telephone" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB84" populated="true" UUID="36d044d7-e4f6-4257-9546-b6a5ee68c683" name="languages" objectType="TABLE" physicalName="languages" >
+   <remarks>Table that stores the languages.</remarks>
+   <folder id="FOLTAB841" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL85" populated="true" UUID="102310c6-addb-4867-a66c-95c941f33377" autoIncrement="false" autoIncrementSequenceName="languages_cod_language_seq" defaultValue="" name="cod_language" nullable="0" physicalName="cod_language" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>table&apos;s PK. Language identifier code.
+</remarks>
+    </column>
+    <column id="COL86" populated="true" UUID="c2e1921e-8576-4fee-9922-dede190bb942" autoIncrement="false" autoIncrementSequenceName="languages_language_seq" defaultValue="" name="language" nullable="0" physicalName="language" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>Language.</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB843" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB842" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB844" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX87" populated="true" UUID="9f29ce46-9e0f-4593-b399-712b33cae55d" clustered="false" name="pk_languages" physicalName="pk_languages" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC88" populated="true" UUID="2c365f02-2b34-4c77-88fc-9ead06086e5d" ascendingOrDescending="UNSPECIFIED" column-ref="COL85" name="cod_language" physicalName="cod_language" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB89" populated="true" UUID="27aca5c3-ae51-4ca8-ae86-618ef2eb63ad" name="flight_crew" objectType="TABLE" physicalName="flight_crew" >
+   <remarks></remarks>
+   <folder id="FOLTAB891" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL90" populated="true" UUID="881e4905-8999-4ee8-86a0-7b027a606279" autoIncrement="false" autoIncrementSequenceName="flights_cod_flight_seq" defaultValue="" name="cod_flight" nullable="0" physicalName="cod_flight" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>It&apos;s the PK of the table - identifies the flight by a code.</remarks>
+    </column>
+    <column id="COL91" populated="true" UUID="44e5864f-d073-468c-b715-f13f20f01f76" autoIncrement="false" autoIncrementSequenceName="crew_cod_crew_seq" defaultValue="" name="cod_crew" nullable="0" physicalName="cod_crew" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks>It&apos;is the PK of the table - identifies the crewmate with a code</remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB893" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB892" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB894" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX92" populated="true" UUID="7c6628a9-f822-47ce-b557-dbe5699a5b73" clustered="false" name="flight_crew_pk" physicalName="flight_crew_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC93" populated="true" UUID="a4bea74f-dd0e-4d0c-bcd1-2be70172a7f7" ascendingOrDescending="UNSPECIFIED" column-ref="COL90" name="cod_flight" physicalName="cod_flight" />
+     <index-column id="IDC94" populated="true" UUID="cdec3327-7394-4925-bef7-e30edab3ca8c" ascendingOrDescending="UNSPECIFIED" column-ref="COL91" name="cod_crew" physicalName="cod_crew" />
+    </index>
+   </folder>
+  </table>
+  <relationships>
+   <relationship id="REL95" populated="true" UUID="cd9ddb94-ea7b-4430-9cb7-76af39867226" deferrability="7" deleteRule="3" fk-table-ref="TAB24" fkCardinality="7" identifying="true" name="passengers_luggage_fk" physicalName="passengers_luggage_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP96" populated="true" UUID="033a32ad-1b9a-4bb7-818e-ac7b44043283" fk-column-ref="COL26" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
+   </relationship>
+   <relationship id="REL97" populated="true" UUID="e999ac93-1a4f-457e-a274-adbf705a2b63" deferrability="7" deleteRule="3" fk-table-ref="TAB9" fkCardinality="7" identifying="true" name="passengers_reservations_fk" physicalName="passengers_reservations_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP98" populated="true" UUID="67a83432-ac41-4b1c-b1ce-bc46de487f20" fk-column-ref="COL10" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
+   </relationship>
+   <relationship id="REL99" populated="true" UUID="404be71d-6775-4a50-aa0d-c615531638dd" deferrability="7" deleteRule="3" fk-table-ref="TAB33" fkCardinality="7" identifying="false" name="airports_flights_fk" physicalName="airports_flights_fk" pk-table-ref="TAB17" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP100" populated="true" UUID="a3a6b26f-7198-456f-b233-59c2bb94db86" fk-column-ref="COL37" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL18" />
+   </relationship>
+   <relationship id="REL101" populated="true" UUID="573c63fd-8e96-4c80-97b2-6117eaf8fc3f" deferrability="7" deleteRule="3" fk-table-ref="TAB33" fkCardinality="7" identifying="false" name="airports_flights_fk1" physicalName="airports_flights_fk1" pk-table-ref="TAB17" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP102" populated="true" UUID="b98f230d-1eaa-4b9f-9c80-7f8467333fc8" fk-column-ref="COL38" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL18" />
+   </relationship>
+   <relationship id="REL103" populated="true" UUID="24582e92-8e70-4d15-a624-3a8b2b4f52d7" deferrability="7" deleteRule="3" fk-table-ref="TAB9" fkCardinality="7" identifying="true" name="flights_reservations_fk" physicalName="flights_reservations_fk" pk-table-ref="TAB33" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP104" populated="true" UUID="e85e332f-2c00-4898-8299-6c9d77bae05f" fk-column-ref="COL11" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL34" />
+   </relationship>
+   <relationship id="REL105" populated="true" UUID="081ecaa2-3823-428e-9329-271e2e08434e" deferrability="7" deleteRule="3" fk-table-ref="TAB24" fkCardinality="7" identifying="false" name="flights_luggage_fk" physicalName="flights_luggage_fk" pk-table-ref="TAB33" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP106" populated="true" UUID="1e67a4e1-09b2-4c69-8867-b6556038b16c" fk-column-ref="COL29" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL34" />
+   </relationship>
+   <relationship id="REL107" populated="true" UUID="b25a7391-56e9-4672-9e49-84dba3654c7f" deferrability="7" deleteRule="3" fk-table-ref="TAB89" fkCardinality="7" identifying="true" name="flights_flight_crew_fk" physicalName="flights_flight_crew_fk" pk-table-ref="TAB33" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP108" populated="true" UUID="7cae9410-22f1-47f7-9126-fb3971d433c7" fk-column-ref="COL90" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL34" />
+   </relationship>
+   <relationship id="REL109" populated="true" UUID="fe6d5af4-a8c3-4833-ba5a-f676ee95982c" deferrability="7" deleteRule="3" fk-table-ref="TAB45" fkCardinality="7" identifying="true" name="crew_pilots_fk" physicalName="crew_pilots_fk" pk-table-ref="TAB51" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP110" populated="true" UUID="e7b280ea-46b3-4ea0-b090-40b0a4adff69" fk-column-ref="COL46" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL52" />
+   </relationship>
+   <relationship id="REL111" populated="true" UUID="d1cbe888-99a2-4d0c-b0e8-f05016e37a4f" deferrability="7" deleteRule="3" fk-table-ref="TAB41" fkCardinality="7" identifying="true" name="crew_commissioners_fk" physicalName="crew_commissioners_fk" pk-table-ref="TAB51" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP112" populated="true" UUID="750e012f-8ed0-4b96-ac10-4571d1f574a7" fk-column-ref="COL42" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL52" />
+   </relationship>
+   <relationship id="REL113" populated="true" UUID="e47ab13e-349a-457f-9a66-7c34603536b8" deferrability="7" deleteRule="3" fk-table-ref="TAB89" fkCardinality="7" identifying="true" name="crew_flight_crew_fk" physicalName="crew_flight_crew_fk" pk-table-ref="TAB51" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP114" populated="true" UUID="54ea4d57-c2bf-4ee2-b264-527d68452df8" fk-column-ref="COL91" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL52" />
+   </relationship>
+   <relationship id="REL115" populated="true" UUID="12bbc891-4e31-49f7-9d90-51d05bb894d0" deferrability="7" deleteRule="3" fk-table-ref="TAB51" fkCardinality="7" identifying="false" name="country_crew_fk" physicalName="country_crew_fk" pk-table-ref="TAB64" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP116" populated="true" UUID="ff265f4e-4d1b-421b-b484-9ea6e3fa74c5" fk-column-ref="COL60" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL65" />
+   </relationship>
+   <relationship id="REL117" populated="true" UUID="1ac07082-5f4e-4f17-b043-6018d4283b8c" deferrability="7" deleteRule="3" fk-table-ref="TAB17" fkCardinality="7" identifying="false" name="country_airports_fk" physicalName="country_airports_fk" pk-table-ref="TAB64" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP118" populated="true" UUID="605cd7e9-d5ac-42d6-b404-2776a1656e6c" fk-column-ref="COL20" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL65" />
+   </relationship>
+   <relationship id="REL119" populated="true" UUID="800d7d25-93ca-49e6-aee2-f06f7e51b727" deferrability="7" deleteRule="3" fk-table-ref="TAB51" fkCardinality="7" identifying="false" name="city_crew_fk" physicalName="city_crew_fk" pk-table-ref="TAB69" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP120" populated="true" UUID="f0636c57-8d61-433d-bad2-4d9dd307f57e" fk-column-ref="COL59" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL70" />
+   </relationship>
+   <relationship id="REL121" populated="true" UUID="09041573-559f-4d24-8ba1-8b2b1f61f392" deferrability="7" deleteRule="3" fk-table-ref="TAB17" fkCardinality="7" identifying="false" name="city_airports_fk" physicalName="city_airports_fk" pk-table-ref="TAB69" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP122" populated="true" UUID="7d124c9d-f98b-43de-b367-1c83ffc0dd9e" fk-column-ref="COL21" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL70" />
+   </relationship>
+   <relationship id="REL123" populated="true" UUID="83ce9b44-65e5-4df9-9718-f105f331df22" deferrability="7" deleteRule="3" fk-table-ref="TAB51" fkCardinality="7" identifying="false" name="postcode_crew_fk" physicalName="postcode_crew_fk" pk-table-ref="TAB74" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP124" populated="true" UUID="dc591461-8fab-41b8-ab44-070a98f4c247" fk-column-ref="COL58" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL75" />
+   </relationship>
+   <relationship id="REL125" populated="true" UUID="6f789ca7-7f6e-405e-a4ac-00a4d2e4ffc4" deferrability="7" deleteRule="3" fk-table-ref="TAB51" fkCardinality="7" identifying="false" name="telephone_crew_fk" physicalName="telephone_crew_fk" pk-table-ref="TAB79" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP126" populated="true" UUID="86836d7a-7e1e-47c4-9c5f-d34c20f202f3" fk-column-ref="COL57" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL80" />
+   </relationship>
+   <relationship id="REL127" populated="true" UUID="f3e3d0e1-c4bf-4983-978a-247909e4f766" deferrability="7" deleteRule="3" fk-table-ref="TAB17" fkCardinality="7" identifying="false" name="telephone_airports_fk" physicalName="telephone_airports_fk" pk-table-ref="TAB79" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP128" populated="true" UUID="993a91ea-7f4b-4205-bd35-f68e9741af3a" fk-column-ref="COL19" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL80" />
+   </relationship>
+   <relationship id="REL129" populated="true" UUID="78e67b50-c0a5-4280-ae7b-c910b47f3836" deferrability="7" deleteRule="3" fk-table-ref="TAB51" fkCardinality="7" identifying="false" name="languages_crew_fk" physicalName="languages_crew_fk" pk-table-ref="TAB84" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP130" populated="true" UUID="7ecc19cc-4dde-4c47-9ca9-2659ec8e7aa0" fk-column-ref="COL61" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL85" />
+   </relationship>
+  </relationships>
+ </target-database>
+ <ddl-generator type="ca.sqlpower.architect.ddl.GenericDDLGenerator" allow-connection="true"> </ddl-generator>
+ <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
+ <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
+ <play-pen zoom="1.0" viewportX="0" viewportY="10" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+  <table-pane table-ref="TAB1" x="45" y="40" bgColor="0xbfd6ff" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB9" x="217" y="240" bgColor="0xbfd6ff" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB17" x="1007" y="20" bgColor="0xdfedce" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB24" x="45" y="375" bgColor="0xbfd6ff" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB33" x="581" y="68" bgColor="0xe4e4b8" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB41" x="545" y="657" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB45" x="503" y="546" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB51" x="904" y="460" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB64" x="1165" y="203" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB69" x="932" y="285" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB74" x="1365" y="621" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB79" x="1416" y="120" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB84" x="1283" y="715" bgColor="0xf6bcbc" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB89" x="619" y="338" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-link relationship-ref="REL95" pkConnection="0.12738853503184713" fkConnection="0.12422360248447205" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL97" pkConnection="0.43312101910828027" fkConnection="0.31666666666666665" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="36"/>
+  <table-link relationship-ref="REL103" pkConnection="0.8794326241134752" fkConnection="0.48333333333333334" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL105" pkConnection="0.06315789473684211" fkConnection="0.898989898989899" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="20"/>
+  <table-link relationship-ref="REL125" pkConnection="0.22364217252396165" fkConnection="0.5894308943089431" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="20"/>
+  <table-link relationship-ref="REL123" pkConnection="0.46153846153846156" fkConnection="0.7032520325203252" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL119" pkConnection="0.3680297397769517" fkConnection="0.4391025641025641" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL115" pkConnection="0.3333333333333333" fkConnection="0.8739837398373984" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="20"/>
+  <table-link relationship-ref="REL129" pkConnection="0.24183006535947713" fkConnection="0.9552845528455285" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="24"/>
+  <table-link relationship-ref="REL109" pkConnection="0.12195121951219512" fkConnection="0.6565656565656566" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL111" pkConnection="0.16666666666666666" fkConnection="0.7209302325581395" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL127" pkConnection="0.46153846153846156" fkConnection="0.8717948717948718" rLineColor="0x2e3436" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL99" pkConnection="0.30833333333333335" fkConnection="0.7730496453900709" rLineColor="0x2e3436" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL101" pkConnection="0.325" fkConnection="0.9858156028368794" rLineColor="0x2e3436" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL107" pkConnection="0.536144578313253" fkConnection="0.4861111111111111" rLineColor="0x2e3436" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL113" pkConnection="0.1282051282051282" fkConnection="1.0" rLineColor="0x2e3436" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL117" pkConnection="0.30303030303030304" fkConnection="0.7307692307692307" rLineColor="0x2e3436" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL121" pkConnection="0.5390334572490706" fkConnection="0.44551282051282054" rLineColor="0x2e3436" pkLabelText="" fkLabelText="" orientation="72"/>
+ </play-pen>
+ <critic-manager>
+  <critic-grouping platformType="Generic" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.PrimaryKeyCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.RelationshipMappingTypeCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.EmptyRelationshipCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.AlphaNumericNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.AlphaNumericSequenceNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SetDefaultOnColumnWithNoDefaultCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SetNullOnNonNullableColumnCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.DuplicateNameCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="DB2" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.DB2UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="H2" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.H2UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="HSQLDB" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.HSQLDBUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="MySQL" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLCommentCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLReservedWordsCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="Oracle" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OraclePhysicalNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OracleReservedWordsCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OracleUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="PostgreSQL" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.PostgreSQLReservedWordsCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServerUnsupportedFeaturesCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServerReservedWordsCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server 2000" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServer2000UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server 2005" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServer2005UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+ </critic-manager>
+ <profiles topNCount="10">
+  </profiles>
+  <olap>
+  </olap>
+  <olap-gui>
+  </olap-gui>
+</architect-project>
