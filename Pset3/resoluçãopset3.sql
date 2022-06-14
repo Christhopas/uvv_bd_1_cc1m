@@ -14,4 +14,4 @@ FROM classificacao_P
 ORDER BY classificacao_P.nome;
 
 
-/* Tenha a humildade de não plagiar, esse pset vale apenas 1 ponto, melhor deixar de ganhar esse ponto do que ferir sua integridade */
+/* Tenha a humildade de não plagiar, esse pset vale apenas pontos extras, melhor deixar de ganhar esse ponto do que ferir sua integridade */
